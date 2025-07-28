@@ -5,6 +5,7 @@ import inspect
 # Import your batching modules
 from naive_batching import NaiveBatcher
 from iterative_batching import IterativeBatcher
+from dynamic_batching import DynamicBatcher
 from request import Request
 '''
 class Request:
@@ -87,11 +88,32 @@ if __name__ == "__main__":
     # Initialize batching strategies
     naive_batcher = NaiveBatcher(window_size=20)
     iterative_batcher = IterativeBatcher()
+    dynamic_batcher = DynamicBatcher(
+        max_tokens_per_batch=100,
+        max_seqs_per_batch=8,
+        max_wait_time=30,
+        gpu_memory_limit=500
+    )
 
     # Run simulations
+    print("Running simulations...\n")
     naive_results = run_simulation(naive_batcher, SIM_DURATION, MIN_ARRIVAL, MAX_ARRIVAL, MAX_TOKENS)
     iterative_results = run_simulation(iterative_batcher, SIM_DURATION, MIN_ARRIVAL, MAX_ARRIVAL, MAX_TOKENS)
+    dynamic_results = run_simulation(dynamic_batcher, SIM_DURATION, MIN_ARRIVAL, MAX_ARRIVAL, MAX_TOKENS)
 
     # Print metrics
     print_stats(naive_results, "Naive")
     print_stats(iterative_results, "Iterative")
+    print_stats(dynamic_results, "Dynamic")
+    
+    # Print dynamic batcher specific metrics
+    metrics = dynamic_batcher.get_metrics()
+    if metrics:
+        print("Dynamic Batcher Metrics:")
+        print(f"  Avg batch size:      {metrics['avg_batch_size']:.2f}")
+        print(f"  Max batch size:      {metrics['max_batch_size']}")
+        print(f"  Avg token usage:     {metrics['avg_token_usage']:.2f}")
+        print(f"  Total batches:       {metrics['total_batches']}")
+        print(f"  Final queue length:  {metrics['queue_length']}")
+        print(f"  Active requests:     {metrics['active_requests']}")
+        print()

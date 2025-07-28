@@ -7,3 +7,4 @@ class Request:
         self.arrival_time = arrival_time
         self.tokens_left = tokens_needed
         self.finish_time = None
+        self.queue_time = 0  # Track how long request has been waiting in queue
