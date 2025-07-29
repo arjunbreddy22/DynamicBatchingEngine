@@ -1,0 +1,46 @@
+{
+  "naive": [],
+  "iterative": [],
+  "dynamic": [
+    {
+      "avg_batch_size": 1.7893145161290323,
+      "max_batch_size": 6,
+      "avg_token_usage": 7.084677419354839,
+      "total_batches": 992,
+      "queue_length": 3,
+      "active_requests": 2
+    },
+    {
+      "avg_batch_size": 1.8819374369323916,
+      "max_batch_size": 6,
+      "avg_token_usage": 7.617558022199798,
+      "total_batches": 991,
+      "queue_length": 1,
+      "active_requests": 5
+    },
+    {
+      "avg_batch_size": 1.8782961460446248,
+      "max_batch_size": 6,
+      "avg_token_usage": 7.546653144016227,
+      "total_batches": 986,
+      "queue_length": 1,
+      "active_requests": 2
+    },
+    {
+      "avg_batch_size": 1.8306451612903225,
+      "max_batch_size": 6,
+      "avg_token_usage": 7.136088709677419,
+      "total_batches": 992,
+      "queue_length": 0,
+      "active_requests": 2
+    },
+    {
+      "avg_batch_size": 1.7688442211055277,
+      "max_batch_size": 5,
+      "avg_token_usage": 7.042211055276382,
+      "total_batches": 995,
+      "queue_length": 2,
+      "active_requests": 1
+    }
+  ]
+}

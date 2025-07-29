@@ -1,0 +1,6 @@
+PERFORMANCE COMPARISON SUMMARY
+==================================================
+
+Naive: 17.62 ± 0.27 avg latency, 337 ± 8 requests
+Iterative: 4.60 ± 0.12 avg latency, 326 ± 4 requests
+Dynamic: 8.95 ± 0.18 avg latency, 329 ± 3 requests
