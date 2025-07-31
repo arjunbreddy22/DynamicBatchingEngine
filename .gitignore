@@ -1,3 +1,4 @@
 __pycache__/
 *.py[cod]
 pytorch_env/
+pytorch_gpu_env/

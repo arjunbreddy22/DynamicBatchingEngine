@@ -1,53 +1,53 @@
 {
   "naive": {
-    "requests_completed": 1,
+    "requests_completed": 4,
     "requests_total": 15,
-    "completion_rate": 0.06666666666666667,
-    "avg_latency": 0,
-    "p95_latency": 0,
-    "throughput_req_per_sec": 0.8858670307314864,
-    "simulation_time_seconds": 1.1288375854492188,
-    "simulation_steps": 21,
+    "completion_rate": 0.26666666666666666,
+    "avg_latency": 8.75,
+    "p95_latency": 10,
+    "throughput_req_per_sec": 4.008184934607724,
+    "simulation_time_seconds": 0.9979579448699951,
+    "simulation_steps": 23,
     "batcher_metrics": {
-      "total_generation_time": 1.1288375854492188,
-      "total_batches": 17,
-      "avg_generation_time_per_batch": 0.06640221090877757
+      "total_generation_time": 0.9963083267211914,
+      "total_batches": 22,
+      "avg_generation_time_per_batch": 0.04528674212369052
     }
   },
   "iterative": {
     "requests_completed": 15,
     "requests_total": 15,
     "completion_rate": 1.0,
-    "avg_latency": 5.2,
-    "p95_latency": 7,
-    "throughput_req_per_sec": 10.78684789177929,
-    "simulation_time_seconds": 1.3905823230743408,
+    "avg_latency": 4.6,
+    "p95_latency": 6,
+    "throughput_req_per_sec": 25.161506285521405,
+    "simulation_time_seconds": 0.5961487293243408,
     "simulation_steps": 21,
     "batcher_metrics": {
-      "total_generation_time": 1.3905823230743408,
-      "total_batches": 21,
-      "avg_generation_time_per_batch": 0.0662182058606829
+      "total_generation_time": 0.5952134132385254,
+      "total_batches": 20,
+      "avg_generation_time_per_batch": 0.02976067066192627
     }
   },
   "dynamic": {
-    "requests_completed": 13,
+    "requests_completed": 15,
     "requests_total": 15,
-    "completion_rate": 0.8666666666666667,
-    "avg_latency": 10.615384615384615,
-    "p95_latency": 18,
-    "throughput_req_per_sec": 7.404005167572694,
-    "simulation_time_seconds": 1.7558064460754395,
-    "simulation_steps": 30,
+    "completion_rate": 1.0,
+    "avg_latency": 10.2,
+    "p95_latency": 15,
+    "throughput_req_per_sec": 23.632429110668454,
+    "simulation_time_seconds": 0.634721040725708,
+    "simulation_steps": 28,
     "batcher_metrics": {
-      "avg_batch_size": 3.033333333333333,
+      "avg_batch_size": 3.269230769230769,
       "max_batch_size": 5,
-      "avg_token_usage": 11.7,
-      "total_batches": 30,
+      "avg_token_usage": 11.26923076923077,
+      "total_batches": 26,
       "queue_length": 0,
-      "active_requests": 2,
-      "total_generation_time": 1.7548081874847412,
-      "llm_batches_processed": 29,
-      "avg_generation_time_per_batch": 0.06051062715464625
+      "active_requests": 0,
+      "total_generation_time": 0.6285851001739502,
+      "llm_batches_processed": 26,
+      "avg_generation_time_per_batch": 0.02417635000669039
     }
   }
 }

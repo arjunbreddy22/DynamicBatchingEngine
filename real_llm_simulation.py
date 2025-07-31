@@ -87,7 +87,20 @@ def run_real_llm_simulation(batcher, requests: List[RealRequest], max_steps: int
     
     simulation_start = time.time()
     
-    while step < max_steps and (request_queue or getattr(batcher, 'requests', []) or getattr(batcher, 'active_batch', [])):
+    # Check for active work in different batcher types
+    def has_active_work(batcher):
+        # Check standard request queue
+        if getattr(batcher, 'requests', []):
+            return True
+        # Check dynamic batcher's active batch
+        if getattr(batcher, 'active_batch', []):
+            return True
+        # Check naive batcher's current batch
+        if getattr(batcher, 'current_batch', []):
+            return True
+        return False
+    
+    while step < max_steps and (request_queue or has_active_work(batcher)):
         # Add requests that arrive at this time step
         arriving_requests = [req for req in request_queue if req.arrival_time == step]
         for req in arriving_requests:
@@ -110,7 +123,10 @@ def run_real_llm_simulation(batcher, requests: List[RealRequest], max_steps: int
         
         # Progress indicator
         if step % 10 == 0:
-            active_count = len(getattr(batcher, 'requests', [])) + len(getattr(batcher, 'active_batch', []))
+            # Count active requests across all batcher types
+            active_count = (len(getattr(batcher, 'requests', [])) + 
+                          len(getattr(batcher, 'active_batch', [])) + 
+                          len(getattr(batcher, 'current_batch', [])))
             print(f"  Step {step}: {len(completed_requests)} completed, {active_count} active")
         
         step += 1
